@@ -1,0 +1,122 @@
+    <!-- <button nz-button nzType="primary" (click)="nuevo()"><span nz-icon nzType="plus"></span> Nuevo Producto</button>
+
+    <nz-table [nzData]="products"
+  [nzBordered]="true"
+  [nzSize]="'middle'"
+  [nzFrontPagination]="true"
+  [nzShowPagination]="true"
+  [nzScroll]="{ x: '600px' }"
+  [nzNoResult]="noResultsTemplate">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Referencia Interna</th>
+          <th>Precio Unitario</th>
+          <th>Estado</th>
+          <th>Unidad de Medida</th>
+          <th>Fecha de Creación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.codigoProducto }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.descripcion }}</td>
+          <td>{{ p.referenciaInterna }}</td>
+          <td>{{ p.precioUnitario }}</td>
+          <td>{{ p.estado | estado }}</td>
+          <td>{{ p.unidadMedida }}</td>
+          <td>{{ p.fechaCreacion | date: 'short' }}</td>
+          <td>
+            <button nz-button nzType="text" nzShape="circle" (click)="editar(p)" nz-tooltip
+              nzTooltipTitle="Editar Producto">
+              <span nz-icon nzType="edit"></span>
+            </button>
+            <button nz-button nzType="text" nzShape="circle" nz-tooltip
+              nzTooltipTitle="Eliminar Producto" nz-popconfirm
+              nzPopconfirmTitle="¿Esta seguro de eliminar el producto?"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="eliminar(p.codigoProducto)">
+              <span nz-icon nzType="delete"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <ng-template #noResultsTemplate>
+      <nz-empty [nzNotFoundContent] = "'No existen productos'"></nz-empty>
+</ng-template>
+ -->
+<button nz-button nzType="primary" (click)="nuevo()">
+  <span nz-icon nzType="plus"></span> Nuevo Producto
+</button>
+
+<nz-table
+  [nzData]="products"
+  [nzFrontPagination]="true"
+  [nzPageSize]="10"
+  [nzShowPagination]="true"
+  [nzBordered]="true"
+  [nzSize]="'middle'"
+  [nzScroll]="{ x: '600px' }"
+  [nzNoResult]="noResultsTemplate"
+  (nzCurrentPageDataChange)="listOfDisplayData = $event"
+>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Referencia Interna</th>
+      <th>Precio Unitario</th>
+      <th>Estado</th>
+      <th>Unidad de Medida</th>
+      <th>Fecha de Creación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of listOfDisplayData">
+      <td>{{ p.codigoProducto }}</td>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.descripcion }}</td>
+      <td>{{ p.referenciaInterna }}</td>
+      <td>{{ p.precioUnitario }}</td>
+      <td>{{ p.estado | estado }}</td>
+      <td>{{ p.unidadMedida }}</td>
+      <td>{{ p.fechaCreacion | date: 'short' }}</td>
+      <td>
+        <button
+          nz-button
+          nzType="text"
+          nzShape="circle"
+          (click)="editar(p)"
+          nz-tooltip
+          nzTooltipTitle="Editar Producto"
+        >
+          <span nz-icon nzType="edit"></span>
+        </button>
+        <button
+          nz-button
+          nzType="text"
+          nzShape="circle"
+          nz-tooltip
+          nzTooltipTitle="Eliminar Producto"
+          nz-popconfirm
+          nzPopconfirmTitle="¿Esta seguro de eliminar el producto?"
+          nzPopconfirmPlacement="bottom"
+          (nzOnConfirm)="eliminar(p.codigoProducto)"
+        >
+          <span nz-icon nzType="delete"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<ng-template #noResultsTemplate>
+  <nz-empty [nzNotFoundContent]="'No existen productos'"></nz-empty>
+</ng-template>

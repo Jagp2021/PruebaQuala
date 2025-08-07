@@ -1,0 +1,9 @@
+Back/Productos.Api/obj/
+Back/Productos.Common/obj/
+Back/Productos.Core/bin/
+Back/Productos.Core/obj/
+Back/Productos.Infrastructure/bin/
+Back/Productos.Infrastructure/obj/
+Front/.angular/
+Front/.vscode/
+Front/node_modules/

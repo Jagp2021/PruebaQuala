@@ -1,0 +1,95 @@
+<form nz-form [formGroup]="form" (ngSubmit)="guardar()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Código Producto</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="6" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('codigoProducto')?.invalid && (form.get('codigoProducto')?.dirty || form.get('codigoProducto')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('codigoProducto')?.hasError('required') && (form.get('codigoProducto')?.dirty || form.get('codigoProducto')?.touched) ? 'El código del producto es requerido' : 
+                        form.get('codigoProducto')?.hasError('min') && (form.get('codigoProducto')?.dirty || form.get('codigoProducto')?.touched) ? 'El código debe ser mayor a 0' : ''">
+          <input nz-input formControlName="codigoProducto" type="number" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Nombre</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="18" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('nombre')?.invalid && (form.get('nombre')?.dirty || form.get('nombre')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('nombre')?.hasError('required') && (form.get('nombre')?.dirty || form.get('nombre')?.touched) ? 'El nombre es requerido' : 
+                        form.get('nombre')?.hasError('maxlength') && (form.get('nombre')?.dirty || form.get('nombre')?.touched) ? 'El nombre no puede tener más de 250 caracteres' : ''">
+          <input nz-input type="text" formControlName="nombre" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Descripción</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="18" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('descripcion')?.invalid && (form.get('descripcion')?.dirty || form.get('descripcion')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('descripcion')?.hasError('required') && (form.get('descripcion')?.dirty || form.get('descripcion')?.touched) ? 'La descripción es requerida' : 
+                        form.get('descripcion')?.hasError('maxlength') && (form.get('descripcion')?.dirty || form.get('descripcion')?.touched) ? 'La descripción no puede tener más de 250 caracteres' : ''">
+          <input nz-input type="text" formControlName="descripcion" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Referencia Interna</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="18" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('referenciaInterna')?.invalid && (form.get('referenciaInterna')?.dirty || form.get('referenciaInterna')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('referenciaInterna')?.hasError('required') && (form.get('referenciaInterna')?.dirty || form.get('referenciaInterna')?.touched) ? 'La referencia interna es requerida' : 
+                        form.get('referenciaInterna')?.hasError('maxlength') && (form.get('referenciaInterna')?.dirty || form.get('referenciaInterna')?.touched) ? 'La referencia no puede tener más de 100 caracteres' : ''">
+          <input nz-input type="text" formControlName="referenciaInterna" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Precio Unitario</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="6" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('precioUnitario')?.invalid && (form.get('precioUnitario')?.dirty || form.get('precioUnitario')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('precioUnitario')?.hasError('required') && (form.get('precioUnitario')?.dirty || form.get('precioUnitario')?.touched) ? 'El precio unitario es requerido' : 
+                        form.get('precioUnitario')?.hasError('min') && (form.get('precioUnitario')?.dirty || form.get('precioUnitario')?.touched) ? 'El precio debe ser mayor o igual a 0' : ''">
+          <input nz-input type="number" formControlName="precioUnitario" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Estado</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+          <nz-switch formControlName="estado" nzCheckedChildren="Activo" nzUnCheckedChildren="Inactivo"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Unidad de Medida</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="6" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('unidadMedida')?.invalid && (form.get('unidadMedida')?.dirty || form.get('unidadMedida')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('unidadMedida')?.hasError('required') && (form.get('unidadMedida')?.dirty || form.get('unidadMedida')?.touched) ? 'La unidad de medida es requerida' : 
+                        form.get('unidadMedida')?.hasError('maxlength') && (form.get('unidadMedida')?.dirty || form.get('unidadMedida')?.touched) ? 'La unidad de medida no puede tener más de 50 caracteres' : ''">
+          <input nz-input type="text" formControlName="unidadMedida" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Fecha de Creación</nz-form-label>
+        <nz-form-control 
+          [nzSpan]="18" 
+          nzHasFeedback 
+          [nzValidateStatus]="form.get('fechaCreacion')?.invalid && (form.get('fechaCreacion')?.dirty || form.get('fechaCreacion')?.touched) ? 'error' : ''"
+          [nzErrorTip]="form.get('fechaCreacion')?.hasError('futureDate') && (form.get('fechaCreacion')?.dirty || form.get('fechaCreacion')?.touched) ? 'No se pueden seleccionar fechas futuras' : ''">
+          <nz-date-picker 
+            formControlName="fechaCreacion" 
+            [nzDisabledDate]="disabledDate"
+            nzPlaceHolder="Selecciona una fecha">
+          </nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzSpan]="24" style="text-align:right">
+          <button nz-button nzType="default" type="button" (click)="cancelar()">Cancelar</button>
+          <button nz-button nzType="primary" type="submit" [disabled]="form.invalid">Guardar</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>

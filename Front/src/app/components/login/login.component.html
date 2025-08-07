@@ -1,0 +1,33 @@
+
+
+
+<div class="login-container">
+  <div class="login-box">
+    <h2>Iniciar Sesión</h2>
+    <form nz-form [formGroup]="form" (ngSubmit)="login()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Usuario</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <nz-input-group nzPrefixIcon="user">
+                <input nz-input formControlName="email" />
+            </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6">Contraseña</nz-form-label>
+        <nz-form-control [nzSpan]="18">
+            <nz-input-group nzPrefixIcon="lock">
+                <input nz-input type="password" formControlName="password" />
+            </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control [nzSpan]="24" style="text-align:right">
+          <button nz-button nzType="primary" [disabled]="form.invalid">Ingresar</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>

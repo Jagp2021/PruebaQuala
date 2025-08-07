@@ -1,0 +1,17 @@
+<nz-layout>
+      <nz-header  *ngIf="auth.isLoggedIn()" class="header">
+        <div class="logo-container">
+          <img src="https://www.vendpoint.com.co/wp-content/uploads/2020/08/logo-quala.png" alt="Logo" class="logo" />
+          <span class="app-name">Quala</span>
+        </div>
+
+        <button nz-button nzGhost="true" (click)="logout()">
+          <span nz-icon nzType="logout"></span>
+          Cerrar sesión
+        </button>
+      </nz-header>
+
+      <nz-content style="padding: 24px">
+        <router-outlet></router-outlet>
+      </nz-content>
+    </nz-layout>

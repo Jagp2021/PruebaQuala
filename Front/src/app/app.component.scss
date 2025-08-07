@@ -1,0 +1,24 @@
+.header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #04A4F0;
+      padding: 0 24px;
+      color: white;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+  height: 50px;
+  width: auto;
+}
+
+    .app-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
